@@ -139,7 +139,11 @@ function showMessage(){
     document.getElementById("message").innerHTML =
     messages[messageIndex];
 
+    document.getElementById("motivationBtn").innerHTML =
+    buttonTexts[buttonIndex % buttonTexts.length];
+
     messageIndex++;
+    buttonIndex++;
 
     if(messageIndex >= messages.length){
 
