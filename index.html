@@ -127,16 +127,17 @@ let buttonIndex = 0;
 
 function showMessage(){
 
-    const randomMessage =
-    messages[Math.floor(Math.random() * messages.length)];
-
-    document.getElementById("message").innerHTML =
-    randomMessage;
+   document.getElementById("message").innerHTML =
+    messages[messageIndex];
 
     document.getElementById("motivationBtn").innerHTML =
     buttonTexts[buttonIndex % buttonTexts.length];
 
+    messageIndex++;
     buttonIndex++;
+
+    if(messageIndex >= messages.length){
+        messageIndex = 0;
 }
 
 function createHeart(){
