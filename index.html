@@ -127,23 +127,27 @@ let messageIndex = 0;
 let buttonIndex = 0;
 
 
+let finished = false;
+
 function showMessage(){
+
+    if(finished){
+        window.location.href = "memory.html";
+        return;
+    }
 
     document.getElementById("message").innerHTML =
     messages[messageIndex];
 
-    document.getElementById("motivationBtn").innerHTML =
-    buttonTexts[buttonIndex % buttonTexts.length];
-
     messageIndex++;
-    buttonIndex++;
 
-    if(messageIndex > messages.length){
+    if(messageIndex >= messages.length){
 
-        window.location.href = "memory.html";
+        document.getElementById("motivationBtn").innerHTML =
+        "Open Your Surprise ❤️";
 
+        finished = true;
     }
-
 }
 
 function createHeart(){
