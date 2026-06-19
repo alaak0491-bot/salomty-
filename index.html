@@ -49,6 +49,26 @@ button:hover{
     color:#333;
     min-height:60px;
 }
+    .heart {
+    position: fixed;
+    bottom: -20px;
+    color: rgba(255, 77, 109, 0.7);
+    font-size: 20px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
 </style>
 </head>
 
@@ -90,6 +110,27 @@ function showMessage(){
 
     document.getElementById("message").innerHTML = random;
 }
+    function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    const duration = Math.random() * 4 + 4;
+    heart.style.animationDuration = duration + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+setInterval(createHeart, 300);
 
 </script>
 
